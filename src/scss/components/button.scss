@@ -1,0 +1,93 @@
+.button {
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #fff;
+    white-space: nowrap;
+
+    height: 45px;
+    width: 100%;
+    max-width: 155px;
+
+    padding: 0 1.65em;
+
+    background: #ff971d;
+    border: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    transition: all 0.2s linear;
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
+        transform: scale(1.02);
+        box-shadow: 0 3px 17px 0 rgba(0, 0, 0, 0.2);
+    }
+    &:not(:disabled):active {
+        transform: scale(1);
+        box-shadow: 0 3px 17px 0 rgba(0, 0, 0, 0.2);
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+.button.-text-uppercase {
+    text-transform: uppercase;
+}
+.button.-size-very-large {
+    height: 70px;
+}
+.button.-size-larger {
+    height: 60px;
+}
+.button.-size-large {
+    height: 55px;
+}
+.button.-size-medium {
+    height: 50px;
+}
+.button.-size-small {
+    height: 45px;
+}
+.button.-size-smaller {
+    height: 40px;
+}
+.button.-size-very-small {
+    height: 30px;
+}
+.button + .button {
+    margin-left: 1em;
+}
+.button.-fill-gradient {
+    background: linear-gradient(90.42deg, #ef3340 0.06%, #ff971d 101.16%);
+}
+.button.-fill-gray {
+    background: #f9f9f9;
+    color: #333;
+}
+.button.-fill-black {
+    background: #333;
+}
+.button.-fill-orange {
+    background: #ff971d;
+}
+.button.-fill-red {
+    background: #ef3340;
+}
+.button.-fill-transparent {
+    background: transparent;
+}
+.button.-color-orange {
+    color: #ff971d;
+}
+.button.-border-gray {
+    border: 1px solid #e0e0e0;
+}
+.button.-width-100 {
+    max-width: initial;
+}

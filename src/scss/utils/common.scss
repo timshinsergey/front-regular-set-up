@@ -1,0 +1,71 @@
+html {
+    font-family: Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    line-height: 1.3;
+
+    scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+button,
+input[type="submit"] {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+button {
+    outline: none;
+}
+figure {
+    line-height: 0;
+}
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+ul,
+ol {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+    &[href^="tel"],
+    &[href^="mailto"] {
+        white-space: nowrap;
+    }
+}
+p {
+    margin-bottom: 1em;
+}
+.pristine-error {
+    color: #fb6b6b;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.-no-scroll {
+    overflow: hidden;
+}
+.wrap {
+    max-width: 1920px;
+
+    margin: auto;
+    padding: 0 60px;
+}
