@@ -1,44 +1,36 @@
 @font-face {
-    font-family: "Ubuntu";
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local("Ubuntu Light"), local("Ubuntu-Light"),
-        url(../fonts/Ubuntu-Light.woff2) format("woff2"),
-        url(../fonts/Ubuntu-Light.woff) format("woff");
-}
-@font-face {
-    font-family: "Ubuntu";
+    font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local("Ubuntu Regular"), local("Ubuntu-Regular"),
-        url(../fonts/Ubuntu-Regular.woff2) format("woff2"),
-        url(../fonts/Ubuntu-Regular.woff) format("woff");
+    src: local("Open Sans Regular"), local("OpenSans-Regular"),
+        url(../fonts/OpenSans-Regular.woff2) format("woff2"),
+        url(../fonts/OpenSans-Regular.woff) format("woff");
 }
 @font-face {
-    font-family: "Ubuntu";
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     font-display: swap;
-    src: local("Ubuntu Medium"), local("Ubuntu-Medium"),
-        url(../fonts/Ubuntu-Medium.woff2) format("woff2"),
-        url(../fonts/Ubuntu-Medium.woff) format("woff");
+    src: local("Montserrat Regular"), local("Montserrat-Regular"),
+        url(../fonts/Montserrat-Regular.woff2) format("woff2"),
+        url(../fonts/Montserrat-Regular.woff) format("woff");
 }
 @font-face {
-    font-family: "Ubuntu";
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"),
+        url(../fonts/Montserrat-SemiBold.woff2) format("woff2"),
+        url(../fonts/Montserrat-SemiBold.woff) format("woff");
+}
+@font-face {
+    font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local("Ubuntu Bold"), local("Ubuntu-Bold"),
-        url(../fonts/Ubuntu-Bold.woff2) format("woff2"),
-        url(../fonts/Ubuntu-Bold.woff) format("woff");
-}
-@font-face {
-    font-family: "DIN Round Pro";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url(../fonts/DINRoundPro-Medi.woff2) format("woff2"),
-        url(../fonts/DINRoundPro-Medi.woff) format("woff");
+    src: local("Montserrat Bold"), local("Montserrat-Bold"),
+        url(../fonts/Montserrat-Bold.woff2) format("woff2"),
+        url(../fonts/Montserrat-Bold.woff) format("woff");
 }
