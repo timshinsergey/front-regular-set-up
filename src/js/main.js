@@ -2,12 +2,8 @@ window.addEventListener('DOMContentLoaded', function() {
     initHamburger()
     initModalFormWindow()
     initAccordion()
-	initPhoneMask()
 	initValidationForm()
 	setTimeout(inputsClassToggle, 100)
-    
-    // кастомный дейтпикер
-    flatpickr('[data-date]', { 'locale': 'ru' })
 })
 
 function initValidationForm() {
@@ -132,17 +128,6 @@ function modalClose(modalSel) {
 			modal.querySelector('iframe').src = modal.querySelector('iframe').src + '?autoplay=0'
 		}
 	}
-}
-
-function initPhoneMask() {
-	let phoneInputs = document.querySelectorAll('[type="tel"]')
-    if (phoneInputs.length) {
-        phoneInputs.forEach(phone => {
-            IMask(phone, {
-                mask: '+{7}(000)000-00-00'
-            })
-        })
-    }
 }
 
 function inputsClassToggle() {

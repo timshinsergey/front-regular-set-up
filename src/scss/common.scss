@@ -2,8 +2,8 @@
 
 @import 'utils/normilize';
 @import 'utils/fonts';
-@import '../vendors/swiper/swiper.min.css';
-@import '../vendors/flatpickr/flatpickr.min.css';
+@import '/node_modules/swiper/swiper-bundle.css';
+@import '/node_modules/flatpickr/dist/flatpickr.min.css';
 @import 'utils/common';
 
 @import 'components/icons';
