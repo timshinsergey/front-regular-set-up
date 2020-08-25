@@ -1,10 +1,34 @@
 window.addEventListener('DOMContentLoaded', function() {
     initHamburger()
-    initModalFormWindow()
+	initModalFormWindow()
+	initPhoneMask()
     initAccordion()
 	initValidationForm()
 	setTimeout(inputsClassToggle, 100)
+
+	// кастомный дейтпикер
+	flatpickr('[data-date]', {
+		dateFormat: 'd.m.Y',
+		locale: 'ru',
+		defaultDate: 'today',
+		disable: [
+			function(date) {
+				return (date > new Date());
+			}
+		],
+	})
 })
+
+window.onload = function() {
+    const forms = document.querySelectorAll('form')
+    forms.forEach(form => {
+        const pristine = new Pristine(form)
+        form.addEventListener('submit', function (e) {
+           e.preventDefault()
+           const valid = pristine.validate()
+        })
+    })
+}
 
 function initValidationForm() {
     let forms = document.querySelectorAll('form')
@@ -17,6 +41,10 @@ function initValidationForm() {
             })
         })
     }
+}
+
+function initPhoneMask() {
+	document.querySelectorAll('[type="tel"]').forEach(phone => IMask(phone, { mask: '+{7}(000)000-00-00' }))
 }
 
 function initAccordion() {

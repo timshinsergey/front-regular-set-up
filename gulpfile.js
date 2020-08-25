@@ -47,28 +47,51 @@ const svgSymbolConfig = {
 		}
 	}
 }
+const BASE_DIR = ''
 
 const config = {
-    paths: {
-        base: './',
-        entry: {
-            js: 'src/js/*.js',
-            scss: 'src/scss/*.scss',
-            imgs: 'src/imgs/**/*',
-            svgSymbol: 'src/imgs/svg/symbol/*.svg',
-            svgView: 'src/imgs/svg/view/*.svg',
-        },
-        output: {
-            js: 'assets/js',
-            css: 'assets/css',
-            imgs: 'assets/imgs',    
-        },
-        watch: {
-            scss: 'src/scss/**/*.scss',
-            js: 'src/js/**/*.js',
-            html: '**/*.html',
-        }
-    }
+	paths: {
+		//base: 'assets',
+		entry: {
+			js: {
+				main: [
+					`${BASE_DIR}src/js/main.js`,
+				],
+                vendors: [
+                    // кастомное решение
+                    // для удобного ввода даты, времени
+                    // с русской локализацией
+                    'node_modules/flatpickr/dist/flatpickr.min.js',
+                    'node_modules/flatpickr/dist/l10n/ru.js',
+                    // лайтбокс
+                    'node_modules/fslightbox/index.js',
+                    // создание масок, например, чтобы
+                    // в инпуте телефона вводилось в формате
+                    // +7 (999) 999-99-99
+                    'node_modules/imask/dist/imask.min.js',
+                    // ленивая загрузка медиаконтента(картинки, видео с ютуб, карты и тд)
+                    'node_modules/lazysizes/lazysizes.min.js',
+                    // валидация формы
+                    'node_modules/pristinejs/dist/pristine.min.js',
+                    // слайдер
+                    'node_modules/swiper/swiper-bundle.min.js',
+                ],
+			},
+			scss: `${BASE_DIR}src/scss/*.scss`,
+			imgs: `${BASE_DIR}src/imgs/**/*`,
+            svgSymbol: `${BASE_DIR}src/imgs/svg/symbol/*.svg`,
+            svgView: `${BASE_DIR}src/imgs/svg/view/*.svg`
+		},
+		output: {
+			js: `${BASE_DIR}assets/js`,
+			css: `${BASE_DIR}assets/css`,
+			imgs: `${BASE_DIR}assets/imgs`,
+		},
+		watch: {
+			scss: `${BASE_DIR}src/scss/**/*.scss`,
+			js: `${BASE_DIR}src/js/**/*.js`,
+		}
+	}
 }
 
 // Пользовательские скрипты проекта
@@ -85,15 +108,25 @@ gulp.task('browser-sync', function () {
 
 // компилим скрипты
 // webpack используется
-// для поддержки импортов/экспортов
-gulp.task('js', function () {
+// для поддержки импортов/экспортов(пока неактивно)
+gulp.task('main-js', function () {
     return gulp
-        .src(config.paths.entry.js)
-        .pipe(named())
-        .pipe(webpack({ output: { filename: '[name].js' } }))
+        .src(config.paths.entry.js.main)
+        // .pipe(named())
+        // .pipe(webpack({ output: { filename: '[name].js' } }))
         .pipe(uglify())
 		.pipe(gulp.dest(config.paths.output.js))
 		.pipe(browserSync.stream())
+})
+
+// собираем js библиотеки
+// в один бандл
+gulp.task('vendors-js', function () {
+    return gulp
+		.src(config.paths.entry.js.vendors)
+		.pipe(concat('vendors.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(config.paths.output.js))
 })
 
 // компилим css для страниц
@@ -155,10 +188,11 @@ gulp.task('svg-sprite-view', function () {
 //смотрим за изменением файлов и перекомпиливаем стили и скрипты
 gulp.task('watch', function () {
     gulp.watch(config.paths.watch.scss, gulp.series('scss'))
-    gulp.watch(config.paths.watch.js, gulp.series('js'))
+    gulp.watch(config.paths.watch.js.main, gulp.series('main-js'))
 })
 
 //все полностью собираем
-gulp.task('build', gulp.parallel('scss', 'js'))
+gulp.task('build', gulp.parallel('scss', 'main-js', 'vendors-js'))
 
+//задачи по умолчанию при запуске галпа
 gulp.task('default', gulp.parallel('browser-sync', 'watch'))
