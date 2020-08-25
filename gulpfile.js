@@ -188,7 +188,7 @@ gulp.task('svg-sprite-view', function () {
 //смотрим за изменением файлов и перекомпиливаем стили и скрипты
 gulp.task('watch', function () {
     gulp.watch(config.paths.watch.scss, gulp.series('scss'))
-    gulp.watch(config.paths.watch.js.main, gulp.series('main-js'))
+    gulp.watch(config.paths.watch.js, gulp.series('main-js'))
 })
 
 //все полностью собираем
