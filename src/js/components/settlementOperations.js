@@ -51,3 +51,23 @@ export const titleCase = str => str.toLowerCase().replace(/(^|\s)\S/g, l => l.to
 export const bouncer = arr => arr.filter(Boolean)
 // пример входных данных bouncer([7, 'string', '', null, undefined, false, 0, 9])
 // на выходе: [7, 'string', 9]
+
+// Возвращает объект с координатам элемента относительно документа(страницы сайта)
+export const getCoordsRelativeDocument = elem => {
+    let box = elem.getBoundingClientRect()
+  
+    return {
+      top: box.top + pageYOffset,
+      left: box.left + pageXOffset
+    }
+}
+
+// Возвращает объект с координатам элемента относительно окна браузера
+export const getCoordsRelativeScreenBrowser = elem => {
+    let box = elem.getBoundingClientRect()
+  
+    return {
+      top: box.top,
+      left: box.left
+    }
+}
