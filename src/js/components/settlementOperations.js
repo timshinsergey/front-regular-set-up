@@ -71,3 +71,23 @@ export const getCoordsRelativeScreenBrowser = elem => {
       left: box.left
     }
 }
+
+// Возвращает массив с добавленным элементом
+export const add = (list, element) => [...list, element]
+// пример входных данных add(['The Hound of the Baskervilles', 'On The Electrodynamics of Moving Bodies'], 'The Lord of the Rings')
+// на выходе: ['The Hound of the Baskervilles', 'On The Electrodynamics of Moving Bodies', 'The Lord of the Rings']
+
+// Возвращает массив без удаленного элемента
+export const remove = (list, element) => list.filter(el => el !== element)
+// пример входных данных remove(['The Hound of the Baskervilles', 'On The Electrodynamics of Moving Bodies', 'The Lord of the Rings'], 'The Lord of the Rings')
+// на выходе: ['The Hound of the Baskervilles', 'On The Electrodynamics of Moving Bodies']
+
+// Возвращает слаг заголовка, обрезаются двойные пробелы, пробелы в начале, конце заголовка
+export const slug = title => title.toLowerCase().trim().split(/\s+/).join("-")
+// пример входных данных slug(' The Hound  of the  Baskervilles ')
+// на выходе: 'the-hound-of-the-baskervilles' 
+
+// Возращает "сглаженный массив"
+export const steamrollArray = arr => arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(steamrollArray(val)) : acc.concat(val), [])
+// пример входных данных steamrollArray([1, [2], [3, [[4]]]])
+// на выходе: [1, 2, 3, 4]
